@@ -3,6 +3,53 @@
 <link rel="stylesheet" href="style.css">
 
 <?php 
+require("index.php");
+
+// Initialising the values
+$username = $password = $confirm_password = '';
+$username_err = $password_err = $confirm_password_err = '';
+
+// Checking if form has been submitted or not (similar to isset())
+if($_SERVER['REQUEST-METHOD']=="POST"){
+	if(empty(trim($_POST['email']))){
+		username_err = 'Email cannot be blank';
+	}
+	else{
+		$sql = "SELECT id from users WHERE username=?"
+
+		// Prepare the SQL query and bind the username param to it (in place of the question mark)
+		if($stmt = mysqli_prepare($conn,$sql)){
+			mysqli_stmt_bind_param($stmt, "s", trim($_POST['username']))
+
+			if(mysqli_stmt_execute($stmt)){
+
+				// To store the result received (doesn't cause performance loss)
+				mysqli_stmt_store_result($stmt);
+
+				if(mysqli_stmt_num_rows($stml)==1){
+					$username_err = "E-mail already in use";
+				}
+				else{
+					$username = trim($_POST['username']);
+				}
+			}
+		}
+		else{
+			echo("Something went wrong with the dollar stmt part")
+		}
+		mysqli_stmt_close($stmt);
+	}
+}
+
+if(empty(trim($_POST['password']))){
+	$password_err = "Password cannot be blank";
+}
+elseif(strllen(trim($_POST['password']))<6){
+	$password_err = "Password needs to be greater than 6 characters";
+}
+else{
+	$password = trim($_POST['password']);
+}
 
  ?>
 
@@ -13,15 +60,22 @@
 </head>
 <body>
 
-<form action="" method="POST">
+<form action="register.php" method="POST">
 	<div class="container p-5 middle">
 		<div class="form-group mb-3">
 			<label for="email" class="form-label">E-mail</label>
-			<input type="email" class="form-control" id="email">
+			<input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
 		</div>
 		<div class="form-group mb-3">
 			<label for="pass" class="form-label">Password</label>
-			<input type="password" class="form-control" id="pass">
+			<input type="password" class="form-control" id="pass" name="pass" placeholder="Enter Password">
+		</div>
+		<div class="form-group mb-3">
+			<label for="pass" class="form-label">Password</label>
+			<input type="password" class="form-control" id="confirmpass" name="confirmpass" placeholder="Confirm Password">
+		</div><br>
+		<div class="text-center">
+			<button class="btn btn-primary">Register</button>
 		</div>
 	</div>
 </form>

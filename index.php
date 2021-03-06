@@ -22,7 +22,8 @@ else{
 	echo("Connected Successfully<br>");
 }
 
-// First run only
+// First run only - Creating database
+
 // $sql = "CREATE DATABASE ".DB_NAME;
 // if(mysqli_query($conn, $sql)){
 // 	echo "Created Database successfully";
@@ -30,6 +31,21 @@ else{
 // else{
 // 	echo("Error creating database : ". mysqli_error($conn));
 // 	exit();
+// }
+
+
+// Creating table
+// $sql = "CREATE TABLE users(
+// 		id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+// 		username VARCHAR(50) NOT NULL UNIQUE,
+// 		password VARCHAR(255) NOT NULL,
+// 		created_at DATETIME DEFAULT CURRENT_TIMESTAMP)";
+
+// if(mysqli_query($conn, $sql)){
+// 	echo("Created Table successfully");
+// }
+// else{
+// 	echo("Error creating table : ". mysqli_error($conn));
 // }
 
 mysqli_close($conn);
