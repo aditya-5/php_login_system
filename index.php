@@ -48,6 +48,8 @@ else{
 // 	echo("Error creating table : ". mysqli_error($conn));
 // }
 
-mysqli_close($conn);
+
+// To close the connection
+// mysqli_close($conn);
 
 ?>
