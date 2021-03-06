@@ -8,7 +8,12 @@ define("DB_USERNAME", 'root');
 define("DB_PASSWORD", '');
 define("DB_NAME", 'loginSystem');
 
+// First run
 $conn = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD);
+
+// If database already created
+$conn = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD, DB_NAME);
+
 
 if($conn === false){
 	die("ERROR: COULDN'T CONNECT TO DATABASE " .  mysqli_connect_error());
@@ -17,14 +22,16 @@ else{
 	echo("Connected Successfully<br>");
 }
 
-$sql = "CREATE DATABASE ".DB_NAME;
+// First run only
+// $sql = "CREATE DATABASE ".DB_NAME;
+// if(mysqli_query($conn, $sql)){
+// 	echo "Created Database successfully";
+// }
+// else{
+// 	echo("Error creating database : ". mysqli_error($conn));
+// 	exit();
+// }
 
-if($conn->query($sql)=== true){
-	echo "Created Database successfully";
-}
-else{
-	echo("Error creating database : ". mysqli_error($conn));
-	exit();
-}
+mysqli_close($conn);
 
 ?>
