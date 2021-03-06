@@ -22,6 +22,11 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']==false ){
 		 	<div class="text-center">
 			 	<a href="logout.php"><button class="btn btn-primary">Log Out</button></a>
 		 	</div>
+		 	<br>
+		 	<div class="text-center">
+ 			<a href="reset-password.php"><button class="btn btn-secondary">Reset</button></a>
+ 		</div>
+
  		</div>
  	</div>
  </body>
