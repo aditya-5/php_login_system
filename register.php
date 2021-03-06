@@ -73,10 +73,10 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
 		mysqli_stmt_bind_param($stmt, "ss", $username, $param_password);
 		$param_password = password_hash($password , PASSWORD_DEFAULT);
 		if(mysqli_stmt_execute($stmt)){
-			header("login.php");
+			header("location: login.php");
 		}
 		else{
-			echo "Something went wrong with the second dollar stmmt part";
+			echo "Something went wrong with the second dollar stmt part";
 		}
 	
 	mysqli_stmt_close($stmt);
