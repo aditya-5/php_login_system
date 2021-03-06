@@ -93,11 +93,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
  			<h2 class="text-center">Login</h2><br>
  			<div class="form-group">
  				<label for="username" class="form-label">E-mail</label>
- 				<input type="email" class="form-control" id="username" name="username">
+ 				<input type="email" class="form-control" id="username" name="username" placeholder="Enter e-mail">
  			</div>
  			<div class="form-group">
  				<label for="password" class="form-label">Password</label>
- 				<input type="password" class="form-control" id="password" name="password">
+ 				<input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
  			</div>
  			<br><br>
  			<div class="text-center">
