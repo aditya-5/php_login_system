@@ -5,7 +5,7 @@ session_start();
 
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){	
 	header("location: welcome.php");
-	exit;
+	exit();
 }
 
 require("index.php");
@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 							$_SESSION['loggedin'] = true;
 							$_SESSION['id'] = $id;
 							$_SESSION['username'] = $username;
-							header("location : welcome.html");
+							header("location : welcome.php");
 						}
 						else{
 							echo "Oops. The password is incorrect";
@@ -69,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 			else{
 				echo "Something is wrong with the dollar stmt part";
 			}
-			mysqli_close($stmt);
+			mysqli_stmt_close($stmt);
 		}
 
 	}
