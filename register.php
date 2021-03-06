@@ -1,6 +1,5 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-<link rel="stylesheet" href="style.css">
+
 
 <?php 
 require("index.php");
@@ -97,6 +96,7 @@ mysqli_close($conn);
 
 <form action="register.php" method="POST">
 	<div class="container p-5 middle">
+		<h2 class="text-center">Register</h2><br>
 		<div class="form-group mb-3">
 			<label for="email" class="form-label">E-mail</label>
 			<input type="email" class="form-control" id="username" name="username" placeholder="Enter email">
