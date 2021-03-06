@@ -94,8 +94,9 @@ mysqli_close($conn);
 </head>
 <body>
 
-<form action="register.php" method="POST">
-	<div class="container p-5 middle">
+
+	<div class="container p-4 middle">
+		<form action="register.php" method="POST">
 		<h2 class="text-center">Register</h2><br>
 		<div class="form-group mb-3">
 			<label for="email" class="form-label">E-mail</label>
@@ -111,9 +112,14 @@ mysqli_close($conn);
 		</div><br>
 		<div class="text-center">
 			<button class="btn btn-primary">Register</button>
-		</div>
+			</div>
+			</form>
+		
+	
+	<div class="text-center">
+		<a href="login.php"><button class="btn btn-secondary">Login</button></a>
 	</div>
-</form>
+</div>
 
 </body>
 </html>
